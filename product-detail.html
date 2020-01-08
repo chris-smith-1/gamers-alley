@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gamers Alley - Detail</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/product-detail.css">
+    <script src="https://kit.fontawesome.com/01b172b534.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <p class="nav-title"><a href="index.html">Gamers Alley</a></p>
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="index.html" class="navbar-anchor">Home</a></li>
+                <li class="navbar-item"><a href="products.html" class="navbar-anchor">Products</a></li>
+                <li class="navbar-item"><a href="search-page.html" class="navbar-anchor">Search</a></li>
+                <li class="navbar-item"><a href="contact.html" class="navbar-anchor">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="main">
+        <div class="product-info">
+            <img class="product-info__img--main" src="images/dominion-nocturne.jpg" alt="Dominion Board Game">
+            <span class="product-info__span">
+                <h2 class="product-name">Dominion: Nocturne</h2>
+                <p class="product-info__p">
+                    <b>Product description:</b>Nocturne, the 11th expansion to Dominion, has 500 cards, with 33 new Kingdom cards. There are Night cards, which are played after the Buy phase; Heirlooms that replace starting Coppers; Fate and Doom cards that give out Boons and Hexes; and a variety of extra cards that other cards can provide.
+                </p>
+                <h2 class="product-price">$31.99</h2>
+                <button class="product-info__button">Add To Cart</button>
+                <select class="product-info__select" name="quantity">
+                    <option value="qty-1">Qty: 1</option>
+                    <option value="qty-2">Qty: 2</option>
+                    <option value="qty-3">Qty: 3</option>
+                    <option value="qty-4">Qty: 4</option>
+                    <option value="qty-5">Qty: 5</option>
+                </select>
+                <div class="img-bar">
+                    <img src="images/dominion-nocturne.jpg" alt="Product Image 1">
+                    <img src="images/dominion-nocturne.jpg" alt="Product Image 1">
+                    <img src="images/dominion-nocturne.jpg" alt="Product Image 1">
+                    <img src="images/dominion-nocturne.jpg" alt="Product Image 1">
+                    <img src="images/dominion-nocturne.jpg" alt="Product Image 1">
+                </div>
+            </span>
+        </div>
+    </div>
+    
+    <footer>
+        <p class="copyright-year">COPYRIGHT © Gamers Alley 2019</p>
+
+        <div class="social-media">
+            <ul class="social-media-list">
+                <li class="social-media-link"><a class="social-media-anchor" href="facebook.com"><i class="fab fa-facebook-square"></i></a></li>
+                <li class="social-media-link"><a class="social-media-anchor" href="instagram.com"><i class="fab fa-instagram"></i></a></li>
+                <li class="social-media-link"><a class="social-media-anchor" href="twitter.com"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="fetch-product.js"></script>
+</body>
+</html>

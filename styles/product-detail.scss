@@ -1,0 +1,33 @@
+.product-info{
+    margin: 50px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+
+    .product-info__span{
+        width: 50%;
+        height: auto;
+    }
+    .product-info__img--main{
+        width: 300px;
+    }
+    .product-price{
+        margin: 18px 0px 18px 0px;
+    }
+    .product-info__button{
+        margin-bottom: 18px;
+    }
+    .product-info__select{
+        margin-left: 20px;
+    }
+    .img-bar{
+
+        img{
+            width: 50px;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+    }
+}
