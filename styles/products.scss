@@ -25,23 +25,25 @@ $header-font: fantasy;
     margin: 20px 0px 0px 0px;
 
     .product-item{
-        margin: 20px auto 0px 0px;
+        margin: 60px auto 0px 0px;
         width: 33%;
         text-align: center;
         img{
             width: 100px;
             height: 100px;
         }
-        h4{
+        .product-item__a-name{
             margin: 10px 0px 0px 0px;
             font-family: $header-font;
             font-weight: 100;
+            color: black;
         }
         p{
             width: 75%;
             margin: auto;
             font-family: cursive;
             font-size: 12px;
+            margin-top: -20px;
         }
     }
 }
@@ -75,14 +77,14 @@ $header-font: fantasy;
     }
 }
 @media only screen and (min-width: 2500px){
-    .product-list{
+    // .product-list{
 
-        .product-item{
-            width: 25%;
+    //     .product-item{
+    //         width: 25%;
 
-            p{
-                width: 100%;
-            }
-        }
-    }
+    //         p{
+    //             width: 100%;
+    //         }
+    //     }
+    // }
 }
