@@ -25,7 +25,7 @@ $header-font: fantasy;
     margin: 20px 0px 0px 0px;
 
     .product-item{
-        margin: 60px auto 0px 0px;
+        margin: 60px 0px 0px 0px;
         width: 33%;
         text-align: center;
         img{
@@ -75,16 +75,4 @@ $header-font: fantasy;
             }
         }
     }
-}
-@media only screen and (min-width: 2500px){
-    // .product-list{
-
-    //     .product-item{
-    //         width: 25%;
-
-    //         p{
-    //             width: 100%;
-    //         }
-    //     }
-    // }
 }
