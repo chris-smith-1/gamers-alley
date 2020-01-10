@@ -11,19 +11,24 @@ import(
 	// "github.com/davecgh/go-spew/spew"
 	"golang.org/x/crypto/bcrypt"
 	"github.com/dgrijalva/jwt-go"
-	"html/template"
 )
 
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
-
-type product struct{
+//Product EXPORTED
+type Product struct{
 	ProductID int `json:"product_id"`
 	Name string `json:"name"`
 	Description string `json:"description"`
 	Price float64 `json:"price"`
-	Image string `json:"image"`
+	Image1 string `json:"image_1"`
+	Image2 string `json:"image_2"`
+	Image3 string `json:"image_3"`
+	Image4 string `json:"image_4"`
+	Image5 string `json:"image_5"`
+}
+
+//ProductID EXPORTED
+type ProductID struct{
+	ProductID int `json:"product_id"`
 }
 
 //User EXPORTED
@@ -43,16 +48,28 @@ type Error struct{
 	Message string `json:"message"`
 }
 
-var tpl *template.Template
-var db *sql.DB
-
-func init(){
-	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
+//HELPER FUNCTION
+func respondWithError(w http.ResponseWriter, status int, error Error){
+	w.WriteHeader(status)
+	fmt.Println(status)
+	json.NewEncoder(w).Encode(error)
 }
+
+func responseJSON(w http.ResponseWriter, data interface{}){
+json.NewEncoder(w).Encode(data)
+}
+
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
+//GLOBAL VARIABLES
+var db *sql.DB
  
 func main() {
   var err error
   db, err = sql.Open("mysql", "root:strongpassword!123@tcp(127.0.0.1:3306)/gamers_alley")
+  //os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
  
   if err != nil {
     panic(err.Error())
@@ -62,9 +79,8 @@ func main() {
   err = db.Ping()
  
   router := mux.NewRouter()
- 
   
-  router.HandleFunc("/", index)
+  router.HandleFunc("/product-detail/{id}", productDetail).Methods("GET")
   router.HandleFunc("/signup", signup).Methods("POST")
   router.HandleFunc("/login", login).Methods("POST")
   router.HandleFunc("/protected", TokenVerifyMiddleware(protectedEndpoint)).Methods("GET")
@@ -73,23 +89,26 @@ func main() {
   log.Fatal(http.ListenAndServe(":8000", router))
 }
 
-func index(w http.ResponseWriter, r *http.Request){
-	tpl.ExecuteTemplate(w, "index.gohtml", nil)
-}
+func productDetail(w http.ResponseWriter, r *http.Request){
+	enableCors(&w)
 
-func respondWithError(w http.ResponseWriter, status int, error Error){
-		w.WriteHeader(status)
-		fmt.Println(status)
-		json.NewEncoder(w).Encode(error)
-}
+	var resProd Product
+	var error Error
+	params := mux.Vars(r)
 
-func responseJSON(w http.ResponseWriter, data interface{}){
-	json.NewEncoder(w).Encode(data)
-}
+	stmt := "SELECT * FROM products WHERE product_id = ?;"
+	row := db.QueryRow(stmt, params["id"])
 
-// func productDetail(w http.ResponseWriter, r *http.Request){
-// 	p := product{name:""}
-// }
+	err := row.Scan(&resProd.ProductID, &resProd.Name, &resProd.Description, &resProd.Price, &resProd.Image1, &resProd.Image2, &resProd.Image3, &resProd.Image4, &resProd.Image5)
+
+	if err != nil{
+		respondWithError(w, http.StatusBadRequest, error)
+	}
+
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/json")
+	responseJSON(w, resProd)
+}
 
 func signup(w http.ResponseWriter, r *http.Request){
 	enableCors(&w)
@@ -109,8 +128,6 @@ func signup(w http.ResponseWriter, r *http.Request){
 		respondWithError(w, http.StatusBadRequest, error)
 		return
 	}
-
-	// spew.Dump(user)
 	
 	hash, err := bcrypt.GenerateFromPassword([]byte(user.Password), 10)
 
@@ -140,6 +157,8 @@ func signup(w http.ResponseWriter, r *http.Request){
 	user.Password = ""
 	
 	w.Header().Set("Content-Type", "application/json")
+
+	w.WriteHeader(http.StatusCreated)
 
 	responseJSON(w, user)
 

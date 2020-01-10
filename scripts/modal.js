@@ -87,32 +87,22 @@ function infoToServer(){
 function signupInfoToServer(email, password){
     var user = new User(email, password);
     JSONUser = JSON.stringify(user)
-    
-    // const xhr = new XMLHttpRequest();
-
-    // xhr.open("POST", "http://localhost:8000/signup", true)
-    // xhr.setRequestHeader("Content-Type", "application/json")
-    // xhr.send(JSONUser)
 
     fetch("http://localhost:8000/signup", {
     mode: 'no-cors',    
     method: 'POST', // or 'PUT'
-        headers: {
+    headers: {
         'Content-Type': 'application/json'
     },
     body: JSONUser
     })
-    .then(response => console.log(response.json()))
+    // .then(response => response) hehe :)
     .then(data => {
         console.log('Success:', data);
     })
     .catch(error => {
         console.error('Error:', error);
     });
-}
-
-function loginInfoToServer(){
-
 }
 
 function User(email, password){
