@@ -81,6 +81,7 @@ func main() {
   router := mux.NewRouter()
   
   router.HandleFunc("/product-detail/{id}", productDetail).Methods("GET")
+  router.HandleFunc("/products", products).Methods("GET")
   router.HandleFunc("/signup", signup).Methods("POST")
   router.HandleFunc("/login", login).Methods("POST")
   router.HandleFunc("/protected", TokenVerifyMiddleware(protectedEndpoint)).Methods("GET")
@@ -108,6 +109,12 @@ func productDetail(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
 	responseJSON(w, resProd)
+}
+
+func products(w http.ResponseWriter, r *http.Request){
+	enableCors(&w)
+	
+	stmt := "SELECT * FROM products;"
 }
 
 func signup(w http.ResponseWriter, r *http.Request){
