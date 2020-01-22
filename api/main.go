@@ -81,7 +81,7 @@ func main() {
   router := mux.NewRouter()
   
   router.HandleFunc("/product-detail/{id}", productDetail).Methods("GET")
-  router.HandleFunc("/products", products).Methods("GET")
+  router.HandleFunc("/products", fetchProducts).Methods("GET")
   router.HandleFunc("/signup", signup).Methods("POST")
   router.HandleFunc("/login", login).Methods("POST")
   router.HandleFunc("/protected", TokenVerifyMiddleware(protectedEndpoint)).Methods("GET")
@@ -111,10 +111,19 @@ func productDetail(w http.ResponseWriter, r *http.Request){
 	responseJSON(w, resProd)
 }
 
-func products(w http.ResponseWriter, r *http.Request){
+func fetchProducts(w http.ResponseWriter, r *http.Request){
 	enableCors(&w)
+
+	var products Product
 	
-	stmt := "SELECT * FROM products;"
+	stmt := "SELECT product_id, name, image_1 FROM products;"
+	row := db.QueryRow(stmt)
+
+	err := row.Scan(&products.ProductID, &products.Name, &products.Image1)
+
+	if err != nil {
+		panic(err.Error())
+	}
 }
 
 func signup(w http.ResponseWriter, r *http.Request){
@@ -168,7 +177,6 @@ func signup(w http.ResponseWriter, r *http.Request){
 	w.WriteHeader(http.StatusCreated)
 
 	responseJSON(w, user)
-
 }
 
 //GenerateToken EXPORTED
