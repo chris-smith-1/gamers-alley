@@ -34,14 +34,12 @@ $header-font: fantasy;
         .product-item__a-name{
             margin: 10px 0px 0px 0px;
             font-family: $header-font;
-            font-weight: 100;
+            font-weight: bolder;
             color: black;
         }
-        p{
-            width: 75%;
+        .product-item__p-price{
             margin: auto;
             font-family: cursive;
-            font-size: 12px;
             margin-top: -20px;
         }
     }

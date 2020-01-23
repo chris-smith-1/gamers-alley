@@ -49,15 +49,13 @@
 .product-list .product-item .product-item__a-name {
   margin: 10px 0px 0px 0px;
   font-family: fantasy;
-  font-weight: 100;
+  font-weight: bolder;
   color: black;
 }
 
-.product-list .product-item p {
-  width: 75%;
+.product-list .product-item .product-item__p-price {
   margin: auto;
   font-family: cursive;
-  font-size: 12px;
   margin-top: -20px;
 }
 

@@ -17,6 +17,7 @@ import (
 type Product struct {
 	ProductID   int     `json:"product_id"`
 	Name        string  `json:"name"`
+	Category	string	`json:"category"`
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`
 	Image1      string  `json:"image_1"`
@@ -116,7 +117,7 @@ func fetchProducts(w http.ResponseWriter, r *http.Request) {
 
 	var products []Product
 
-	stmt := "SELECT product_id, name, price, image_1 FROM products;"
+	stmt := "SELECT product_id, name, category, price, image_1 FROM products;"
 	rows, err := db.Query(stmt)
 
 	if err != nil {
@@ -125,7 +126,7 @@ func fetchProducts(w http.ResponseWriter, r *http.Request) {
 
 	for rows.Next() {
 		var product Product
-		err := rows.Scan(&product.ProductID, &product.Name, &product.Price, &product.Image1)
+		err := rows.Scan(&product.ProductID, &product.Name, &product.Category, &product.Price, &product.Image1)
 
 		if err != nil {
 			panic(err.Error())
@@ -137,7 +138,6 @@ func fetchProducts(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
 	responseJSON(w, products)
-	
 	
 }
 
