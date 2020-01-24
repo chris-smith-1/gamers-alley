@@ -3,6 +3,7 @@
     //BUILD GRID
     var productContainer = document.querySelector(".product-list");
     var productList = [];
+    var fullProductList;
 
     function Product(category, html){
         this.category = category;
@@ -33,23 +34,41 @@
             //Add products to DOM
             productContainer.innerHTML += product
         }
+
+        fullProductList = productContainer.innerHTML;
     })
 
     //SETUP CATEGORY FILTER
     var filterCheckboxes = document.querySelectorAll(".product-filter__input");
+    console.log(filterCheckboxes)
 
     var updateProductGrid = function(){
 
-        document.querySelector(".product-list").innerHTML = "";
+        //Clear DOM
+        productContainer.innerHTML = "";
+        var numberTrue = 0;
 
+        //Loop through "checked" checkboxes
         for(i=0; i<filterCheckboxes.length; i++){
-
+            
+            //Check each checkbox for "checked"
             if(filterCheckboxes[i].checked === true){
-                
-            }else{
-                continue;
-            }
+                console.log(filterCheckboxes[i].name)
+                numberTrue += 1
+                const filterName = filterCheckboxes[i].name
 
+                for (i=0; i<productList.length; i++) {
+                    if(filterName === productList[i].category){
+                        productContainer.innerHTML += productList[i].html;
+                    }else{
+                        console.log("items not added to DOM")
+                    }
+                }
+            }
+        }
+
+        if(numberTrue === 0){
+            productContainer.innerHTML = fullProductList;
         }
     }
     
@@ -59,3 +78,4 @@
 
     }
 })()
+

@@ -9,7 +9,7 @@ import (
 	"log"
 	"net/http"
 	// "github.com/davecgh/go-spew/spew"
-	"github.com/dgrijalva/jwt-go"
+	// "github.com/dgrijalva/jwt-go"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -84,7 +84,7 @@ func main() {
 	router.HandleFunc("/product-detail/{id}", productDetail).Methods("GET")
 	router.HandleFunc("/products", fetchProducts).Methods("GET")
 	router.HandleFunc("/signup", signup).Methods("POST")
-	router.HandleFunc("/login", login).Methods("POST")
+	// router.HandleFunc("/login", login).Methods("POST")
 	router.HandleFunc("/protected", TokenVerifyMiddleware(protectedEndpoint)).Methods("GET")
 
 	log.Println("Listening on port 8000...")
@@ -195,79 +195,79 @@ func signup(w http.ResponseWriter, r *http.Request) {
 }
 
 //GenerateToken EXPORTED
-func GenerateToken(user User) (string, error) {
-	var err error
-	secret := "secret"
+// func GenerateToken(user User) (string, error) {
+// 	var err error
+// 	secret := "secret"
 
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"email": user.Email,
-		"iss":   "course",
-	})
+// 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+// 		"email": user.Email,
+// 		"iss":   "course",
+// 	})
 
-	tokenString, err := token.SignedString([]byte(secret))
+// 	tokenString, err := token.SignedString([]byte(secret))
 
-	if err != nil {
-		panic(err.Error())
-	}
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
 
-	return tokenString, nil
-}
+// 	return tokenString, nil
+// }
 
-func login(w http.ResponseWriter, r *http.Request) {
-	var user User
-	var jwt JWT
-	var error Error
+// func login(w http.ResponseWriter, r *http.Request) {
+// 	var user User
+// 	var jwt JWT
+// 	var error Error
 
-	json.NewDecoder(r.Body).Decode(&user)
+// 	json.NewDecoder(r.Body).Decode(&user)
 
-	if user.Email == "" {
-		error.Message = "Email is missing."
-		respondWithError(w, http.StatusBadRequest, error)
-		return
-	}
+// 	if user.Email == "" {
+// 		error.Message = "Email is missing."
+// 		respondWithError(w, http.StatusBadRequest, error)
+// 		return
+// 	}
 
-	if user.Password == "" {
-		error.Message = "Password is missing."
-		respondWithError(w, http.StatusBadRequest, error)
-		return
-	}
+// 	if user.Password == "" {
+// 		error.Message = "Password is missing."
+// 		respondWithError(w, http.StatusBadRequest, error)
+// 		return
+// 	}
 
-	password := user.Password
+// 	password := user.Password
 
-	row := db.QueryRow("SELECT * FROM users WHERE email = ?", user.Email)
-	err := row.Scan(&user.ID, &user.Email, &user.Password)
+// 	row := db.QueryRow("SELECT * FROM users WHERE email = ?", user.Email)
+// 	err := row.Scan(&user.ID, &user.Email, &user.Password)
 
-	if err != nil {
-		if err == sql.ErrNoRows {
-			error.Message = "The user does not exist"
-			respondWithError(w, http.StatusBadRequest, error)
-			return
-		} else {
-			panic(err.Error())
-		}
-	}
+// 	if err != nil {
+// 		if err == sql.ErrNoRows {
+// 			error.Message = "The user does not exist"
+// 			respondWithError(w, http.StatusBadRequest, error)
+// 			return
+// 		} else {
+// 			panic(err.Error())
+// 		}
+// 	}
 
-	hashedPassword := user.Password
+// 	hashedPassword := user.Password
 
-	err = bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
+// 	err = bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
 
-	if err != nil {
-		error.Message = "Invalid Password"
-		respondWithError(w, http.StatusUnauthorized, error)
-		return
-	}
+// 	if err != nil {
+// 		error.Message = "Invalid Password"
+// 		respondWithError(w, http.StatusUnauthorized, error)
+// 		return
+// 	}
 
-	token, err := GenerateToken(user)
+// 	token, err := GenerateToken(user)
 
-	if err != nil {
-		panic(err.Error())
-	}
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
 
-	w.WriteHeader(http.StatusOK)
-	jwt.Token = token
+// 	w.WriteHeader(http.StatusOK)
+// 	jwt.Token = token
 
-	responseJSON(w, jwt)
-}
+// 	responseJSON(w, jwt)
+// }
 
 func protectedEndpoint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("protectedEndpoint invoked")

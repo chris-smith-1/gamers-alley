@@ -1,3 +1,8 @@
-FROM alpine
+FROM golang
 
-CMD ["echo", "Hello World"]
+COPY . /api
+
+RUN go get github.com/go-sql-driver/mysql
+RUN go get github.com/dgrijalva/jwt-go
+RUN go get github.com/gorilla/mux
+RUN go get github.com/davecgh/go-spew/spew
