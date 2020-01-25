@@ -64,6 +64,8 @@
                         console.log("items not added to DOM")
                     }
                 }
+            }else{
+                console.log("boxes not checked")
             }
         }
 
