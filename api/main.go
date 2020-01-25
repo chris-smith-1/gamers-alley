@@ -101,13 +101,13 @@ func productDetail(w http.ResponseWriter, r *http.Request) {
 	stmt := "SELECT * FROM products WHERE product_id = ?;"
 	row := db.QueryRow(stmt, params["id"])
 
-	err := row.Scan(&resProd.ProductID, &resProd.Name, &resProd.Description, &resProd.Price, &resProd.Image1, &resProd.Image2, &resProd.Image3, &resProd.Image4, &resProd.Image5)
+	err := row.Scan(&resProd.ProductID, &resProd.Name, &resProd.Category, &resProd.Description, &resProd.Price, &resProd.Image1, &resProd.Image2, &resProd.Image3, &resProd.Image4, &resProd.Image5)
 
 	if err != nil {
 		respondWithError(w, http.StatusBadRequest, error)
 	}
 
-	w.WriteHeader(http.StatusOK)
+	// w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
 	responseJSON(w, resProd)
 }

@@ -1,0 +1,21 @@
+-- CREATE DATABASE gamers_alley;
+
+-- -- Table Setup
+-- CREATE TABLE products(
+--     product_id INT NOT NULL AUTO_INCREMENT,
+--     name VARCHAR(100) NOT NULL,
+--     category VARCHAR(50) NOT NULL,
+--     description VARCHAR(500),
+--     price DECIMAL(5,2) NOT NULL,
+--     image_1 VARCHAR(100),
+--     image_2 VARCHAR(100),
+--     image_3 VARCHAR(100),
+--     image_4 VARCHAR(100),
+--     image_5 VARCHAR(100),
+--     PRIMARY KEY(product_id)
+-- );
+-- CREATE TABLE users(
+--     id VARCHAR(50) NOT NULL AUTO_INCREMENT,
+--     email VARCHAR(50) NOT NULL,
+--     password VARCHAR(100) NOT NULL
+-- );

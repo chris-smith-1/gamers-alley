@@ -1,12 +1,7 @@
-function Product(id){
-    this.id = id;
-}
-
 // Get ID from query string parameters
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
-const product = new Product(id)
-JSONproduct = JSON.stringify(product)
+console.log(id)
 
 // Get data from external resource
 fetch(`http://localhost:8000/product-detail/${id}`)
@@ -14,6 +9,7 @@ fetch(`http://localhost:8000/product-detail/${id}`)
     return response.json()
 })
 .then(data => {
+    console.log(data)
     document.querySelector(".product-name").innerHTML = data.name;
     document.querySelector(".product-info__img--main").src = data.image_1;
     document.querySelector(".product-info__p").innerHTML = data.description;

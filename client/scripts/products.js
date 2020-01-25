@@ -70,6 +70,10 @@
         if(numberTrue === 0){
             productContainer.innerHTML = fullProductList;
         }
+
+        if(productContainer.innerHTML === ""){
+            productContainer.innerHTML = `<p style="display: block; margin: 20px auto 0px auto;"><i>No products available with this filter.</i></p>`;
+        }
     }
     
     for (i=0; i<filterCheckboxes.length; i++){
