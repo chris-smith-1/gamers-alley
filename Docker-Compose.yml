@@ -1,0 +1,47 @@
+version: "3.3"
+services:
+  cmd:
+    container_name: ga-api
+    build:
+      context: api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    restart: always
+    networks:
+      - backend
+    depends_on:
+      - database
+      - web
+    tty: true
+
+  database:
+    environment:
+      MYSQL_DATABASE: gamers_alley
+      MYSQL_ROOT_PASSWORD: strongpassword!123
+    container_name: ga-database
+    build:
+      context: database
+      dockerfile: Dockerfile
+    ports:
+      - "3300:3300"
+    restart: always
+    networks:
+      - backend
+    tty: true
+
+  web:
+    container_name: ga-client
+    build:
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: always
+    networks:
+      - backend
+    tty: true
+
+networks:
+  backend:
+    driver: "bridge"

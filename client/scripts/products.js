@@ -40,40 +40,45 @@
 
     //SETUP CATEGORY FILTER
     var filterCheckboxes = document.querySelectorAll(".product-filter__input");
-    console.log(filterCheckboxes)
 
     var updateProductGrid = function(){
+    
+        const checkedBoxes = [];
+        let numberTrue = 0;
 
         //Clear DOM
         productContainer.innerHTML = "";
-        var numberTrue = 0;
 
         //Loop through "checked" checkboxes
         for(i=0; i<filterCheckboxes.length; i++){
-            
             //Check each checkbox for "checked"
-            if(filterCheckboxes[i].checked === true){
-                console.log(filterCheckboxes[i].name)
-                numberTrue += 1
-                const filterName = filterCheckboxes[i].name
-
-                for (i=0; i<productList.length; i++) {
-                    if(filterName === productList[i].category){
-                        productContainer.innerHTML += productList[i].html;
-                    }else{
-                        console.log("items not added to DOM")
-                    }
-                }
-            }else{
-                console.log("boxes not checked")
+            if(filterCheckboxes[i].checked === true){                
+                checkedBoxes.push(filterCheckboxes[i].name)
             }
         }
 
-        if(numberTrue === 0){
+        for(i=0; i<productList.length; i++){
+
+            // if(productList[i].category === checkedBoxes[0]){
+            //     console.log("it works")
+            // }
+
+
+            if(productList[i].category === checkedBoxes[0] || productList[i].category === checkedBoxes[1] || productList[i].category === checkedBoxes[2] || productList[i].category === checkedBoxes[3]){
+                
+                numberTrue += 1;
+
+                productContainer.innerHTML += productList[i].html;
+                console.log(productList[i].category)
+            }
+
+        }
+
+        if(checkedBoxes.length === 0){
             productContainer.innerHTML = fullProductList;
         }
 
-        if(productContainer.innerHTML === ""){
+        if(checkedBoxes.length > 0 && productContainer.innerHTML === ""){
             productContainer.innerHTML = `<p style="display: block; margin: 20px auto 0px auto;"><i>No products available with this filter.</i></p>`;
         }
     }
@@ -84,4 +89,3 @@
 
     }
 })()
-

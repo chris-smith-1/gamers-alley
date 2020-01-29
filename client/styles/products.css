@@ -12,6 +12,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 30px;
+  border: solid 1px darkgray;
 }
 
 .product-filter .product-filter__input {
@@ -44,6 +45,7 @@
 .product-list .product-item img {
   width: 100px;
   height: 100px;
+  border: solid 1px black;
 }
 
 .product-list .product-item .product-item__a-name {

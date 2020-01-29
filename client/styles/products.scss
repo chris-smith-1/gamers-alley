@@ -8,6 +8,7 @@ $header-font: fantasy;
     padding: 10px 0px 10px 0px;
     align-items: center;
     height: 30px;
+    border: solid 1px darkgray;
 
     .product-filter__input{
         margin: 0px 10px 0px 0px;
@@ -30,6 +31,7 @@ $header-font: fantasy;
         img{
             width: 100px;
             height: 100px;
+            border: solid 1px black;
         }
         .product-item__a-name{
             margin: 10px 0px 0px 0px;
