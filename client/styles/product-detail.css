@@ -15,7 +15,10 @@
 
 .product-info .product-info__img--main {
   width: 300px;
-  border: solid 1px darkgray;
+  -webkit-box-shadow: 5px 5px 1px darkgrey;
+          box-shadow: 5px 5px 1px darkgrey;
+  border-top: solid 1px lightgray;
+  border-left: solid 1px lightgray;
 }
 
 .product-info .product-price {
@@ -31,7 +34,8 @@
 }
 
 .product-info .img-bar img {
-  width: 50px;
+  width: 80px;
+  height: 80px;
   border: solid 1px darkgray;
 }
 

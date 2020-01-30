@@ -45,7 +45,8 @@
 .product-list .product-item img {
   width: 100px;
   height: 100px;
-  border: solid 1px black;
+  -webkit-box-shadow: 3px 3px 1px darkgrey;
+          box-shadow: 3px 3px 1px darkgrey;
 }
 
 .product-list .product-item .product-item__a-name {

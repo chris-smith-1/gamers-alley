@@ -3,9 +3,14 @@
   width: 400px;
 }
 
+.contact-form h3 {
+  font-family: fantasy;
+}
+
 .contact-form .contact-form__label {
   display: block;
   margin: 10px 0px 5px 0px;
+  font-family: fantasy;
 }
 
 .contact-form .contact-form__input--radio {
@@ -23,12 +28,5 @@
 
 .contact-form .contact-form__button {
   margin: 5px 0px 5px 0px;
-}
-
-.contact-form .contact-form__pg--error-msg {
-  color: red;
-  font-size: 12px;
-  margin-top: 0px;
-  display: none;
 }
 /*# sourceMappingURL=contact.css.map */

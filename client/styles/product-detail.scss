@@ -9,7 +9,9 @@
     }
     .product-info__img--main{
         width: 300px;
-        border: solid 1px darkgray;
+        box-shadow: 5px 5px 1px darkgrey;
+        border-top: solid 1px lightgray;
+        border-left: solid 1px lightgray;
     }
     .product-price{
         margin: 18px 0px 18px 0px;
@@ -23,12 +25,13 @@
     .img-bar{
 
         img{
-            width: 50px;
+            width: 80px;
+            height: 80px;
             border: solid 1px darkgray;
 
             &:hover{
                 cursor: pointer;
-                border: solid 1px blue
+                border: solid 1px blue;
             }
         }
     }
