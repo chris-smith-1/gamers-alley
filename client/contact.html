@@ -29,33 +29,29 @@
                     <h3>Contact Form</h3>
                     <h5>Fill out the form to stay updated with our products and specials</h5>
                     
-                    <label class="contact-form__label" for="first-name">First Name:</label>
+                    <label class="contact-form__label" name="first-name">First Name:</label>
                     <input class="contact-form__input input--first-name" type="text" required>
-                    <p class="contact-form__pg--error-msg error-msg-1">* required</p>
+                    
 
-                    <label class="contact-form__label" for="last-name">Last Name:</label>
+                    <label class="contact-form__label" name="last-name">Last Name:</label>
                     <input class="contact-form__input input--last-name" type="text" required>
-                    <p class="contact-form__pg--error-msg error-msg-2">* required</p>
 
-                    <label class="contact-form__label" for="email">Email:</label>
+                    <label class="contact-form__label" name="email">Email:</label>
                     <input class="contact-form__input input--email" type="email" required>
-                    <p class="contact-form__pg--error-msg error-msg-3">* required</p>
 
-                    <label class="contact-form__label" for="phone-number">Phone Number:</label>
+                    <label class="contact-form__label" name="phone-number">Phone Number:</label>
                     <input class="contact-form__input input--phone-number" type="tel" required>
-                    <p class="contact-form__pg--error-msg error-msg-4">* required</p>
 
-                    <label class="contact-form__label" for="preferred-contact-method">Preferred Contact Method:</label>
+                    <label class="contact-form__label" name="preferred-contact-method">Preferred Contact Method:</label>
                     <input class="contact-form__input--radio input__radio--email" type="radio" name="preferred-contact-method" required>Email
                     <input class="contact-form__input--radio input__radio--phone" type="radio" name="preferred-contact-method" style="margin-left: 10px" required>Phone
-                    <p class="contact-form__pg--error-msg error-msg-5">* required</p>
 
-                    <label class="contact-form__label" for="email">How did you hear about us?</label>
-                    <input class="contact-form__input--radio" type="radio" name="referal-choices">Conference<br>
-                    <input class="contact-form__input--radio input__radio--tv" type="radio" name="referal-choices">TV<br>
-                    <input class="contact-form__input--radio input__radio--radio" type="radio" name="referal-choices">Radio<br>
-                    <input class="contact-form__input--radio input__radio--wordofmouth" type="radio" name="referal-choices">Word of Mouth<br>
-                    <input class="contact-form__input--radio input__radio--other" type="radio" name="referal-choices">Other<br>
+                    <label class="contact-form__label" name="email">How did you hear about us?</label>
+                    <input id="Conference" class="contact-form__input--radio input__radio--conference" type="radio" name="referal-choices">Conference<br>
+                    <input id="TV" class="contact-form__input--radio input__radio--tv" type="radio" name="referal-choices">TV<br>
+                    <input id="Radio" class="contact-form__input--radio input__radio--radio" type="radio" name="referal-choices">Radio<br>
+                    <input id="Word-Of-Mouth" class="contact-form__input--radio input__radio--wordofmouth" type="radio" name="referal-choices">Word of Mouth<br>
+                    <input id="Other" class="contact-form__input--radio input__radio--other" type="radio" name="referal-choices">Other<br>
 
                     <textarea class="contact-form__textarea" cols="50" rows="4" placeholder="Other comments"></textarea>
                     <input class="contact-form__button" type="submit">

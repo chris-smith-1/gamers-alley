@@ -1,4 +1,3 @@
-FROM node
+FROM nginx
 
-COPY . /client
-
+COPY . /usr/share/nginx/html

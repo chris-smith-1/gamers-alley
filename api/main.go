@@ -17,7 +17,7 @@ import (
 type Product struct {
 	ProductID   int     `json:"product_id"`
 	Name        string  `json:"name"`
-	Category	string	`json:"category"`
+	Category    string  `json:"category"`
 	Description string  `json:"description"`
 	Price       float64 `json:"price"`
 	Image1      string  `json:"image_1"`
@@ -69,12 +69,14 @@ var db *sql.DB
 
 func main() {
 	var err error
-	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(127.0.0.1:3306)/gamers_alley")
+	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
 	//os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
 
 	if err != nil {
 		panic(err.Error())
 	}
+
+	fmt.Println("Database connection sucessful")
 
 	defer db.Close()
 	err = db.Ping()
@@ -138,7 +140,7 @@ func fetchProducts(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
 	responseJSON(w, products)
-	
+
 }
 
 func signup(w http.ResponseWriter, r *http.Request) {
