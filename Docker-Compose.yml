@@ -12,6 +12,9 @@ services:
       - database
 
   database:
+    environment: 
+      MYSQL_DATABASE: gamers_alley
+      MYSQL_ROOT_PASSWORD: strongpassword!123
     container_name: ga-database
     build:
       context: database

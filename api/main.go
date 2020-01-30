@@ -69,7 +69,7 @@ var db *sql.DB
 
 func main() {
 	var err error
-	db, err = sql.Open("mysql", "user:password123@tcp(ga-database:3300)/gamers_alley")
+	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
 	//os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
 
 	if err != nil {
@@ -118,8 +118,6 @@ func fetchProducts(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
 
 	var products []Product
-
-	fmt.Printf("%+v", db)
 
 	stmt := "SELECT product_id, name, category, price, image_1 FROM products;"
 	rows, err := db.Query(stmt)

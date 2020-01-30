@@ -12,7 +12,7 @@ RUN go get github.com/gorilla/mux
 RUN go get github.com/davecgh/go-spew/spew
 RUN go get golang.org/x/crypto/bcrypt
 
-RUN go build -o main .
+RUN go build main.go
 
 EXPOSE 8000
 
