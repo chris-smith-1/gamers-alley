@@ -69,7 +69,8 @@ var db *sql.DB
 
 func main() {
 	var err error
-	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
+	// db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
+	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(localhost:3306)/gamers_alley")
 	//os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
 
 	if err != nil {

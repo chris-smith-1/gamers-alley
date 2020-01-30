@@ -176,13 +176,13 @@ $header-font: fantasy;
 
 /* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
+  -webkit-animation-name: slide;
   -webkit-animation-duration: 1.5s;
-  animation-name: fade;
+  animation-name: slide;
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes fade {
+@-webkit-keyframes slide {
   from {opacity: .4}
   to {opacity: 1}
 }
