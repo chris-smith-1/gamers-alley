@@ -22,6 +22,10 @@
   padding: 0px 20px 0px 20px;
 }
 
+.featured-container__p {
+  font-family: "Raleway", sans-serif;
+}
+
 /* The Modal (background) */
 .login-modal {
   display: none;
@@ -55,10 +59,18 @@
   /* Could be more or less, depending on screen size */
 }
 
+.modal-content label {
+  font-family: 'Raleway', sans-serif;
+}
+
+.modal-content input {
+  font-family: 'Raleway', sans-serif;
+}
+
 .modal-content h2 {
   display: inline-block;
   padding: 5px;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
   border: solid black 1px;
 }
 
@@ -101,7 +113,7 @@
 }
 
 .featured-container__h2 {
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
   margin-top: 0px;
 }
 

@@ -32,7 +32,7 @@ ul {
   font-weight: bold;
   font-size: 22px;
   margin: 0px 0px 0px 0px;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
 }
 
 .navbar .nav-title a {
@@ -57,9 +57,9 @@ ul {
   margin: auto 0px auto 0px;
   text-decoration: none;
   color: whitesmoke;
-  padding-bottom: 12px;
+  padding-bottom: 17px;
   padding-top: 100%;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
 }
 
 .navbar .navbar-anchor:hover {

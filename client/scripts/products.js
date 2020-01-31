@@ -24,7 +24,7 @@
             const product = `<span class="product-item ${data[i].category}">
             <a href="product-detail.html?id=${data[i].product_id}"><img src="${data[i].image_1}" alt="${data[i].name}"></a>
             <h4><a class="product-item__a-name" href="product-detail.html?id=${data[i].product_id}">${data[i].name}</a></h4>
-            <p class="product-item__p-price">$${newPrice}</p>
+            <p class="product-item__p-price">$ ${newPrice}</p>
             </span>`
 
             const x = new Product(data[i].category, product)
@@ -58,11 +58,6 @@
         }
 
         for(i=0; i<productList.length; i++){
-
-            // if(productList[i].category === checkedBoxes[0]){
-            //     console.log("it works")
-            // }
-
 
             if(productList[i].category === checkedBoxes[0] || productList[i].category === checkedBoxes[1] || productList[i].category === checkedBoxes[2] || productList[i].category === checkedBoxes[3]){
                 

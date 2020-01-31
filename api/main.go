@@ -8,8 +8,6 @@ import (
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	// "github.com/davecgh/go-spew/spew"
-	// "github.com/dgrijalva/jwt-go"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -69,7 +67,8 @@ var db *sql.DB
 
 func main() {
 	var err error
-	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
+	// db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
+	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(localhost:3306)/gamers_alley")
 	//os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
 
 	if err != nil {
@@ -100,7 +99,7 @@ func productDetail(w http.ResponseWriter, r *http.Request) {
 	var error Error
 	params := mux.Vars(r)
 
-	stmt := "SELECT * FROM products WHERE product_id = ?;"
+	stmt := "SELECT product_id, name, category, description, price, image_1, image_2, image_3, image_4, image_5 FROM products INNER JOIN product_images ON product_images.image_id = products.product_id WHERE product_id = ?;"
 	row := db.QueryRow(stmt, params["id"])
 
 	err := row.Scan(&resProd.ProductID, &resProd.Name, &resProd.Category, &resProd.Description, &resProd.Price, &resProd.Image1, &resProd.Image2, &resProd.Image3, &resProd.Image4, &resProd.Image5)
@@ -119,7 +118,7 @@ func fetchProducts(w http.ResponseWriter, r *http.Request) {
 
 	var products []Product
 
-	stmt := "SELECT product_id, name, category, price, image_1 FROM products;"
+	stmt := "SELECT product_id, name, category, price, image_1 FROM products INNER JOIN product_images ON product_images.image_id = products.product_id;"
 	rows, err := db.Query(stmt)
 
 	if err != nil {

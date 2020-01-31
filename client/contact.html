@@ -8,68 +8,73 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/contact.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/01b172b534.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-            <nav class="navbar">
-                <p class="nav-title"><a href="index.html">Gamers Alley</a></p>
-                <ul class="navbar-list">
-                    <li class="navbar-item"><a href="index.html" class="navbar-anchor">Home</a></li>
-                    <li class="navbar-item"><a href="products.html" class="navbar-anchor">Products</a></li>
-                    <li class="navbar-item"><a href="search-page.html" class="navbar-anchor">Search</a></li>
-                    <li class="navbar-item"><a href="contact.html" class="navbar-anchor">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        <nav class="navbar">
+            <p class="nav-title"><a href="index.html">Gamers Alley</a></p>
+            <ul class="navbar-list">
+                <li class="navbar-item"><a href="index.html" class="navbar-anchor">Home</a></li>
+                <li class="navbar-item"><a href="products.html" class="navbar-anchor">Products</a></li>
+                <li class="navbar-item"><a href="search-page.html" class="navbar-anchor">Search</a></li>
+                <li class="navbar-item"><a href="contact.html" class="navbar-anchor">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     
-        <div class="main">
-            <form class="contact-form" action="###" method="GET"> 
-                <fieldset class="contact-form__fieldset">
-                    <h3>Contact Form</h3>
-                    <h5>Fill out the form to stay updated with our products and specials</h5>
-                    
-                    <label class="contact-form__label" name="first-name">First Name:</label>
-                    <input class="contact-form__input input--first-name" type="text" required>
-                    
+    <div class="main">
+        <form class="contact-form" action="###" method="GET"> 
+            <fieldset class="contact-form__fieldset">
+                <h3>Contact Form</h3>
+                <h5>Fill out the form to stay updated with our products and specials</h5>
+                
+                <label class="contact-form__label" name="first-name">First Name:</label>
+                <input class="contact-form__input input--first-name" type="text" required>
+                
 
-                    <label class="contact-form__label" name="last-name">Last Name:</label>
-                    <input class="contact-form__input input--last-name" type="text" required>
+                <label class="contact-form__label" name="last-name">Last Name:</label>
+                <input class="contact-form__input input--last-name" type="text" required>
 
-                    <label class="contact-form__label" name="email">Email:</label>
-                    <input class="contact-form__input input--email" type="email" required>
+                <label class="contact-form__label" name="email">Email:</label>
+                <input class="contact-form__input input--email" type="email" required>
 
-                    <label class="contact-form__label" name="phone-number">Phone Number:</label>
-                    <input class="contact-form__input input--phone-number" type="tel" required>
+                <label class="contact-form__label" name="phone-number">Phone Number:</label>
+                <input class="contact-form__input input--phone-number" type="tel" required>
 
-                    <label class="contact-form__label" name="preferred-contact-method">Preferred Contact Method:</label>
-                    <input class="contact-form__input--radio input__radio--email" type="radio" name="preferred-contact-method" required>Email
-                    <input class="contact-form__input--radio input__radio--phone" type="radio" name="preferred-contact-method" style="margin-left: 10px" required>Phone
+                <label class="contact-form__label" name="preferred-contact-method">Preferred Contact Method:</label>
+                <input class="contact-form__input--radio input__radio--email" type="radio" name="preferred-contact-method" required><span>Email</span>
+                <input class="contact-form__input--radio input__radio--phone" type="radio" name="preferred-contact-method" style="margin-left: 10px" required><span>Phone</span>
 
-                    <label class="contact-form__label" name="email">How did you hear about us?</label>
-                    <input id="Conference" class="contact-form__input--radio input__radio--conference" type="radio" name="referal-choices">Conference<br>
-                    <input id="TV" class="contact-form__input--radio input__radio--tv" type="radio" name="referal-choices">TV<br>
-                    <input id="Radio" class="contact-form__input--radio input__radio--radio" type="radio" name="referal-choices">Radio<br>
-                    <input id="Word-Of-Mouth" class="contact-form__input--radio input__radio--wordofmouth" type="radio" name="referal-choices">Word of Mouth<br>
-                    <input id="Other" class="contact-form__input--radio input__radio--other" type="radio" name="referal-choices">Other<br>
+                <label class="contact-form__label" name="email">How did you hear about us?</label>
+                <input id="Conference" class="contact-form__input--radio input__radio--conference" type="radio" name="referal-choices"><span>Conference</span>
+                <br>
+                <input id="TV" class="contact-form__input--radio input__radio--tv" type="radio" name="referal-choices"><span>TV</span>
+                <br>
+                <input id="Radio" class="contact-form__input--radio input__radio--radio" type="radio" name="referal-choices"><span>Radio</span>
+                <br>
+                <input id="Word-Of-Mouth" class="contact-form__input--radio input__radio--wordofmouth" type="radio" name="referal-choices"><span>Word of Mouth</span>
+                <br>
+                <input id="Other" class="contact-form__input--radio input__radio--other" type="radio" name="referal-choices"><span>Other</span>
 
-                    <textarea class="contact-form__textarea" cols="50" rows="4" placeholder="Other comments"></textarea>
-                    <input class="contact-form__button" type="submit">
-                </fieldset>
-            </form>
+                <textarea class="contact-form__textarea" cols="50" rows="4" placeholder="Other comments"></textarea>
+                <button class="contact-form__button" type="submit"><span>Submit</span></button>
+            </fieldset>
+        </form>
+    </div>
+
+    <footer>
+        <p class="copyright-year">COPYRIGHT © Gamers Alley 2019</p>
+
+        <div class="social-media">
+            <ul class="social-media-list">
+                <li class="social-media-link"><a class="social-media-anchor" href="facebook.com"><i class="fab fa-facebook-square"></i></a></li>
+                <li class="social-media-link"><a class="social-media-anchor" href="instagram.com"><i class="fab fa-instagram"></i></a></li>
+                <li class="social-media-link"><a class="social-media-anchor" href="twitter.com"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
         </div>
-    
-        <footer>
-            <p class="copyright-year">COPYRIGHT © Gamers Alley 2019</p>
-    
-            <div class="social-media">
-                <ul class="social-media-list">
-                    <li class="social-media-link"><a class="social-media-anchor" href="facebook.com"><i class="fab fa-facebook-square"></i></a></li>
-                    <li class="social-media-link"><a class="social-media-anchor" href="instagram.com"><i class="fab fa-instagram"></i></a></li>
-                    <li class="social-media-link"><a class="social-media-anchor" href="twitter.com"><i class="fab fa-twitter-square"></i></a></li>
-                </ul>
-            </div>
-        </footer>
+    </footer>
 </body>
 
 <script src="scripts/contact.js"></script>

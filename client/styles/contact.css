@@ -3,9 +3,28 @@
   width: 400px;
 }
 
+.contact-form h3 {
+  font-family: "Raleway", sans-serif;
+}
+
+.contact-form h5 {
+  font-family: "Raleway", sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.contact-form span {
+  font-family: "Raleway", sans-serif;
+}
+
+.contact-form input {
+  font-family: "Raleway", sans-serif;
+}
+
 .contact-form .contact-form__label {
   display: block;
   margin: 10px 0px 5px 0px;
+  font-family: "Raleway", sans-serif;
 }
 
 .contact-form .contact-form__input--radio {
@@ -19,16 +38,10 @@
 
 .contact-form .contact-form__textarea {
   margin: 10px 0px 0px 0px;
+  font-family: "Raleway", sans-serif;
 }
 
 .contact-form .contact-form__button {
   margin: 5px 0px 5px 0px;
-}
-
-.contact-form .contact-form__pg--error-msg {
-  color: red;
-  font-size: 12px;
-  margin-top: 0px;
-  display: none;
 }
 /*# sourceMappingURL=contact.css.map */

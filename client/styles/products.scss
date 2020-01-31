@@ -1,4 +1,4 @@
-$header-font: fantasy;
+$main-font: 'Raleway', sans-serif;
 
 .product-filter{
     display: flex;
@@ -15,7 +15,7 @@ $header-font: fantasy;
     }
     .product-filter__h4{
         margin: 5px 60px 0px 0px;
-        font-family: $header-font;
+        font-family: $main-font;
     }
 }
 .product-list{
@@ -31,18 +31,19 @@ $header-font: fantasy;
         img{
             width: 100px;
             height: 100px;
-            border: solid 1px black;
+            box-shadow: 3px 3px 4px darkgrey;
         }
         .product-item__a-name{
             margin: 10px 0px 0px 0px;
-            font-family: $header-font;
+            font-family: $main-font;
             font-weight: bolder;
             color: black;
         }
         .product-item__p-price{
-            margin: auto;
-            font-family: cursive;
-            margin-top: -20px;
+            font-family: $main-font;
+            font-size: 14px;
+            font-style: italic;
+            margin-top: -15px;
         }
     }
 }
