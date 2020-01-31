@@ -21,7 +21,7 @@
 
 .product-filter .product-filter__h4 {
   margin: 5px 60px 0px 0px;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
 }
 
 .product-list {
@@ -51,7 +51,7 @@
 
 .product-list .product-item .product-item__a-name {
   margin: 10px 0px 0px 0px;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
   font-weight: bolder;
   color: black;
 }

@@ -59,11 +59,6 @@
 
         for(i=0; i<productList.length; i++){
 
-            // if(productList[i].category === checkedBoxes[0]){
-            //     console.log("it works")
-            // }
-
-
             if(productList[i].category === checkedBoxes[0] || productList[i].category === checkedBoxes[1] || productList[i].category === checkedBoxes[2] || productList[i].category === checkedBoxes[3]){
                 
                 numberTrue += 1;

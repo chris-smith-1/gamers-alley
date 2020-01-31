@@ -1,5 +1,5 @@
 //VARABLES
-$header-font: fantasy;
+$header-font: 'Raleway', sans-serif;
 
 * {box-sizing:border-box}
 
@@ -16,6 +16,10 @@ $header-font: fantasy;
   .navbar-item__login{
     padding: 0px 20px 0px 20px;
   }
+}
+
+.featured-container__p{
+  font-family: $header-font;
 }
 
 /* The Modal (background) */
@@ -176,13 +180,13 @@ $header-font: fantasy;
 
 /* Fading animation */
 .fade {
-  -webkit-animation-name: slide;
+  -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
-  animation-name: slide;
+  animation-name: fade;
   animation-duration: 1.5s;
 }
 
-@-webkit-keyframes slide {
+@-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
 }

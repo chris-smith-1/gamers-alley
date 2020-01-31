@@ -4,13 +4,23 @@
 }
 
 .contact-form h3 {
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
+}
+
+.contact-form h5 {
+  font-family: "Raleway", sans-serif;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.contact-form span {
+  font-family: "Raleway", sans-serif;
 }
 
 .contact-form .contact-form__label {
   display: block;
   margin: 10px 0px 5px 0px;
-  font-family: fantasy;
+  font-family: "Raleway", sans-serif;
 }
 
 .contact-form .contact-form__input--radio {
@@ -24,6 +34,7 @@
 
 .contact-form .contact-form__textarea {
   margin: 10px 0px 0px 0px;
+  font-family: "Raleway", sans-serif;
 }
 
 .contact-form .contact-form__button {
