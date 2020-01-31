@@ -1,5 +1,5 @@
 //VARABLES
-$header-font: 'Raleway', sans-serif;
+$main-font: 'Raleway', sans-serif;
 
 * {box-sizing:border-box}
 
@@ -19,7 +19,7 @@ $header-font: 'Raleway', sans-serif;
 }
 
 .featured-container__p{
-  font-family: $header-font;
+  font-family: $main-font;
 }
 
 /* The Modal (background) */
@@ -44,10 +44,16 @@ $header-font: 'Raleway', sans-serif;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 
+  label{
+    font-family: 'Raleway', sans-serif;
+  }
+  input{
+    font-family: 'Raleway', sans-serif;
+  }
   h2{
     display: inline-block;
     padding: 5px;
-    font-family: $header-font;
+    font-family: $main-font;
     border: solid black 1px;
 
     &:hover{
@@ -89,7 +95,7 @@ $header-font: 'Raleway', sans-serif;
 
 }
 .featured-container__h2{
-  font-family: $header-font;
+  font-family: $main-font;
   margin-top: 0px;
 }
 

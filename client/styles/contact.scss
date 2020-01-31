@@ -1,24 +1,27 @@
-$header-font: 'Raleway', sans-serif;
+$main-font: 'Raleway', sans-serif;
 
 .contact-form{
     margin: 80px auto 0px auto;
     width: 400px;
 
     h3{
-        font-family: $header-font;
+        font-family: $main-font;
     }
     h5{
-        font-family: $header-font;
+        font-family: $main-font;
         font-weight: lighter;
         font-style: italic;
     }
     span{
-        font-family: $header-font;
+        font-family: $main-font;
+    }
+    input{
+        font-family: $main-font;
     }
     .contact-form__label{
         display: block;
         margin: 10px 0px 5px 0px;
-        font-family: $header-font;
+        font-family: $main-font;
     }
     .contact-form__input--radio{
         display: inline-block;
@@ -29,7 +32,7 @@ $header-font: 'Raleway', sans-serif;
     }
     .contact-form__textarea{
         margin: 10px 0px 0px 0px;
-        font-family: $header-font;
+        font-family: $main-font;
     }
     .contact-form__button{
         margin: 5px 0px 5px 0px;

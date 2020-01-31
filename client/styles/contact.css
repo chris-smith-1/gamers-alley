@@ -17,6 +17,10 @@
   font-family: "Raleway", sans-serif;
 }
 
+.contact-form input {
+  font-family: "Raleway", sans-serif;
+}
+
 .contact-form .contact-form__label {
   display: block;
   margin: 10px 0px 5px 0px;

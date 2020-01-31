@@ -1,4 +1,4 @@
-$header-font: 'Raleway', sans-serif;
+$main-font: 'Raleway', sans-serif;
 
 .search-bar{
     text-align: center;
@@ -6,7 +6,7 @@ $header-font: 'Raleway', sans-serif;
 
     .search-bar__label{
         margin: 0px 10px 0px 0px;
-        font-family: $header-font;
+        font-family: $main-font;
     }
     .search-bar__input{
         width: 50%;
