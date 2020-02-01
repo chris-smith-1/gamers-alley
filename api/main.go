@@ -9,6 +9,8 @@ import (
 	"log"
 	"net/http"
 	"golang.org/x/crypto/bcrypt"
+	"os"
+	"github.com/joho/godotenv"
 )
 
 //Product EXPORTED
@@ -47,7 +49,14 @@ type Error struct {
 	Message string `json:"message"`
 }
 
-//HELPER FUNCTION
+//Initialize ENV Data
+func init() {
+    if err := godotenv.Load("../auth.env"); err != nil {
+        log.Print("No .env file found")
+    }
+}
+
+//HELPER FUNCTIONS
 func respondWithError(w http.ResponseWriter, status int, error Error) {
 	w.WriteHeader(status)
 	fmt.Println(status)
@@ -68,7 +77,7 @@ var db *sql.DB
 func main() {
 	var err error
 	// db, err = sql.Open("mysql", "root:strongpassword!123@tcp(database:3306)/gamers_alley")
-	db, err = sql.Open("mysql", "root:strongpassword!123@tcp(localhost:3306)/gamers_alley")
+	db, err = sql.Open("mysql", "root:" + os.Getenv("DB_PASSWORD") + "@tcp(localhost:3306)/" + os.Getenv("DB_NAME"))
 	//os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
 
 	if err != nil {
