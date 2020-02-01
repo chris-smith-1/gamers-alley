@@ -20,7 +20,9 @@ function Customer(firstName, lastName, email, phoneNumber, preferredContactMetho
 function formValidation(e){
     e.preventDefault();
 
-    referralSources = [];
+    let referralSource;
+    let preferredContactMethod;
+    let referralSources = [];
 
     const firstName = document.querySelector(".input--first-name");
     const lastName = document.querySelector(".input--last-name");
@@ -38,13 +40,21 @@ function formValidation(e){
     
     for(i=0; i<referralSources.length; i++){
         if(referralSources[i].checked === true){
-            console.log(referralSources[i])
+            referralSource = referralSources[i];
         }
 
         break;
     }
 
-    var customer = new Customer(firstName, lastName, email, phoneNumber, preferredContactMethod1, preferredContactMethod2, referralSource1, referralSource2, referralSource3, referralSource4, referralSource5);
+    if(preferredContactMethod1.checked === true){
+        preferredContactMethod = preferredContactMethod1.value;
+    }else if(preferredContactMethod2.checked === true){
+        preferredContactMethod = preferredContactMethod2.value;
+    }else{
+        console.error("No preferred contact method selected");
+    }
+
+    var customer = new Customer(firstName.value, lastName.value, email.value, phoneNumber.value, preferredContactMethod.value, referralSource.value);
 
     console.log(customer);
 
