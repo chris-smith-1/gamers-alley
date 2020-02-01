@@ -21,10 +21,20 @@ ul{
     background-color: #343a40;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: auto;
     padding: 16px 0px 16px 0px;
 
+    .fa-shopping-cart{
+        color: whitesmoke;
+        position: absolute;
+        left: 25px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
     .nav-title{
         color: whitesmoke;
         font-weight: bold;

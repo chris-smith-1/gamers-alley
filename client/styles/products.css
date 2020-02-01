@@ -47,6 +47,7 @@
   height: 100px;
   -webkit-box-shadow: 3px 3px 4px darkgrey;
           box-shadow: 3px 3px 4px darkgrey;
+  border-radius: 5px;
 }
 
 .product-list .product-item .product-item__a-name {
