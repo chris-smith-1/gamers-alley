@@ -3,18 +3,14 @@ var contactForm = document.querySelector(".contact-form");
 
 contactForm.addEventListener("submit", formValidation);
 
-function Customer(firstName, lastName, email, phoneNumber, preferredContactMethod1, preferredContactMethod2, referralSource1, referralSource2, referralSource3, referralSource4, referralSource5){
+function Customer(firstName, lastName, email, phoneNumber, preferredContactMethod, referralSource, otherComments){
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.phoneNumber = phoneNumber;
-    this.preferredContactMethod1 = preferredContactMethod1;
-    this.preferredContactMethod2 = preferredContactMethod2;
-    this.referralSource1 = referralSource1;
-    this.referralSource2 = referralSource2;
-    this.referralSource3 = referralSource3;
-    this.referralSource4 = referralSource4;
-    this.referralSource5 = referralSource5;
+    this.preferredContactMethod = preferredContactMethod;
+    this.referralSource = referralSource;
+    this.otherComments = otherComments;
 }
 
 function formValidation(e){
@@ -35,28 +31,47 @@ function formValidation(e){
     const referralSource3 = document.querySelector(".input__radio--radio");
     const referralSource4 = document.querySelector(".input__radio--wordofmouth");
     const referralSource5 = document.querySelector(".input__radio--other");
+    const otherComments = document.querySelector(".contact-form__textarea");
 
     referralSources.push(referralSource1, referralSource2, referralSource3, referralSource4, referralSource5);
+
+    // console.log(referralSource1.nextSibling)
     
     for(i=0; i<referralSources.length; i++){
         if(referralSources[i].checked === true){
-            referralSource = referralSources[i];
+            referralSource = referralSources[i].nextSibling.innerHTML;
+            break;
         }
-
-        break;
     }
 
     if(preferredContactMethod1.checked === true){
-        preferredContactMethod = preferredContactMethod1.value;
+        preferredContactMethod = preferredContactMethod1.nextSibling.innerHTML;
     }else if(preferredContactMethod2.checked === true){
-        preferredContactMethod = preferredContactMethod2.value;
+        preferredContactMethod = preferredContactMethod2.nextSibling.innerHTML;
     }else{
         console.error("No preferred contact method selected");
     }
 
-    var customer = new Customer(firstName.value, lastName.value, email.value, phoneNumber.value, preferredContactMethod.value, referralSource.value);
+    var customer = new Customer(firstName.value, lastName.value, email.value, phoneNumber.value, preferredContactMethod, referralSource, otherComments.value);
 
-    console.log(customer);
+    JSONCustomer = JSON.stringify(customer)
+
+    console.log(JSONCustomer);
+
+    fetch("http://localhost:8000/contact", {
+    mode: 'no-cors',    
+    method: 'POST', // or 'PUT'
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSONCustomer
+    })
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
     contactForm.reset();
 }

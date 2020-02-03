@@ -12,3 +12,9 @@ $main-font: 'Raleway', sans-serif;
         width: 50%;
     }
 }
+
+.product-grid{
+    display: flex;
+    justify-content: flex-start; 
+    flex-wrap: wrap;
+}

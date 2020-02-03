@@ -39,6 +39,17 @@ type User struct {
 	Password string `json:"password"`
 }
 
+//Customer Exported
+type Customer struct{
+	FirstName string `json:"firstName"`
+	LastName string `json:"lastName"`
+	Email string `json:"email"`
+	PhoneNumber string `json:"phoneNumber"`
+	PreferredContactMethod string `json:"preferredContactMethod"`
+	ReferralSource string `json:"referralSource"`
+	OtherComments string `json:"otherComments"`
+}
+
 //JWT EXPORTED
 type JWT struct {
 	Token string `json:"token"`
@@ -95,6 +106,7 @@ func main() {
 	router.HandleFunc("/products", fetchProducts).Methods("GET")
 	router.HandleFunc("/signup", signup).Methods("POST")
 	// router.HandleFunc("/login", login).Methods("POST")
+	router.HandleFunc("/contact", contact).Methods("POST")
 	router.HandleFunc("/protected", TokenVerifyMiddleware(protectedEndpoint)).Methods("GET")
 
 	log.Println("Listening on port 8000...")
@@ -278,6 +290,26 @@ func signup(w http.ResponseWriter, r *http.Request) {
 
 // 	responseJSON(w, jwt)
 // }
+
+func contact(w http.ResponseWriter, r *http.Request){
+	enableCors(&w)
+
+	var customer Customer
+	// var error Error
+
+	err := json.NewDecoder(r.Body).Decode(&customer)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	stmt := "INSERT INTO customers(first_name, last_name, email, phone_number, preferred_contact_method, referral_method, other_comments) VALUES(?,?,?,?,?,?,?)";
+
+	db.QueryRow(stmt, customer.FirstName, customer.LastName, customer.Email, customer.PhoneNumber, customer.PreferredContactMethod, customer.ReferralSource, customer.OtherComments)
+	
+	w.Header().Set("Content-Type", "application/json")
+	responseJSON(w, customer)
+}
 
 func protectedEndpoint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("protectedEndpoint invoked")
