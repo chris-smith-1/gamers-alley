@@ -62,7 +62,7 @@ type Error struct {
 
 //Initialize ENV Data
 func init() {
-    if err := godotenv.Load("../auth.env"); err != nil {
+    if err := godotenv.Load("auth.env"); err != nil {
         log.Print("No .env file found")
     }
 }
