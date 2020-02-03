@@ -104,6 +104,7 @@ func main() {
 
 	router.HandleFunc("/product-detail/{id}", productDetail).Methods("GET")
 	router.HandleFunc("/products", fetchProducts).Methods("GET")
+	router.HandleFunc("/search", fetchProducts).Methods("GET")
 	router.HandleFunc("/signup", signup).Methods("POST")
 	// router.HandleFunc("/login", login).Methods("POST")
 	router.HandleFunc("/contact", contact).Methods("POST")
@@ -216,6 +217,26 @@ func signup(w http.ResponseWriter, r *http.Request) {
 	responseJSON(w, user)
 }
 
+func contact(w http.ResponseWriter, r *http.Request){
+	enableCors(&w)
+
+	var customer Customer
+	// var error Error
+
+	err := json.NewDecoder(r.Body).Decode(&customer)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	stmt := "INSERT INTO customers(first_name, last_name, email, phone_number, preferred_contact_method, referral_method, other_comments) VALUES(?,?,?,?,?,?,?)";
+
+	db.QueryRow(stmt, customer.FirstName, customer.LastName, customer.Email, customer.PhoneNumber, customer.PreferredContactMethod, customer.ReferralSource, customer.OtherComments)
+	
+	w.Header().Set("Content-Type", "application/json")
+	responseJSON(w, customer)
+}
+
 //GenerateToken EXPORTED
 // func GenerateToken(user User) (string, error) {
 // 	var err error
@@ -290,26 +311,6 @@ func signup(w http.ResponseWriter, r *http.Request) {
 
 // 	responseJSON(w, jwt)
 // }
-
-func contact(w http.ResponseWriter, r *http.Request){
-	enableCors(&w)
-
-	var customer Customer
-	// var error Error
-
-	err := json.NewDecoder(r.Body).Decode(&customer)
-
-	if err != nil {
-		panic(err.Error())
-	}
-
-	stmt := "INSERT INTO customers(first_name, last_name, email, phone_number, preferred_contact_method, referral_method, other_comments) VALUES(?,?,?,?,?,?,?)";
-
-	db.QueryRow(stmt, customer.FirstName, customer.LastName, customer.Email, customer.PhoneNumber, customer.PreferredContactMethod, customer.ReferralSource, customer.OtherComments)
-	
-	w.Header().Set("Content-Type", "application/json")
-	responseJSON(w, customer)
-}
 
 func protectedEndpoint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("protectedEndpoint invoked")
