@@ -103,6 +103,8 @@ function signupInfoToServer(email, password){
     .catch(error => {
         console.error('Error:', error);
     });
+
+    
 }
 
 function User(email, password){

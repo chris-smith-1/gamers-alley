@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gamers Alley - Contact</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/css/main.css">
+    <link rel="stylesheet" href="styles/css/normalize.css">
+    <link rel="stylesheet" href="styles/css/contact.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/01b172b534.js" crossorigin="anonymous"></script>
 </head>
@@ -42,7 +42,8 @@
                 <input class="contact-form__input input--email" type="email" required>
 
                 <label class="contact-form__label" name="phone-number">Phone Number:</label>
-                <input class="contact-form__input input--phone-number" type="tel" required>
+                <input class="contact-form__input input--phone-number" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <small>Format: 123-456-7890</small>
 
                 <label class="contact-form__label" name="preferred-contact-method">Preferred Contact Method:</label>
                 <input class="contact-form__input--radio input__radio--email" type="radio" name="preferred-contact-method" required><span>Email</span>

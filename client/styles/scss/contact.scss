@@ -18,6 +18,10 @@ $main-font: 'Raleway', sans-serif;
     input{
         font-family: $main-font;
     }
+    small{
+        display: block;
+        margin: 2px 0px 20px 0px;
+    }
     .contact-form__label{
         display: block;
         margin: 10px 0px 5px 0px;
@@ -25,9 +29,6 @@ $main-font: 'Raleway', sans-serif;
     }
     .contact-form__input--radio{
         display: inline-block;
-        margin: 0px 10px 0px 0px;
-    }
-    .contact-form__input--checkbox{
         margin: 0px 10px 0px 0px;
     }
     .contact-form__textarea{

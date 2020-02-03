@@ -33,9 +33,10 @@ function formValidation(e){
     const referralSource5 = document.querySelector(".input__radio--other");
     const otherComments = document.querySelector(".contact-form__textarea");
 
-    referralSources.push(referralSource1, referralSource2, referralSource3, referralSource4, referralSource5);
+    const newPhoneNumber = phoneNumber.value.replace(/-/g, "");
+    console.log(newPhoneNumber)
 
-    // console.log(referralSource1.nextSibling)
+    referralSources.push(referralSource1, referralSource2, referralSource3, referralSource4, referralSource5);
     
     for(i=0; i<referralSources.length; i++){
         if(referralSources[i].checked === true){
@@ -52,7 +53,7 @@ function formValidation(e){
         console.error("No preferred contact method selected");
     }
 
-    var customer = new Customer(firstName.value, lastName.value, email.value, phoneNumber.value, preferredContactMethod, referralSource, otherComments.value);
+    var customer = new Customer(firstName.value, lastName.value, email.value, newPhoneNumber, preferredContactMethod, referralSource, otherComments.value);
 
     JSONCustomer = JSON.stringify(customer)
 
