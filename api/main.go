@@ -87,7 +87,7 @@ var db *sql.DB
 
 func main() {
 	var err error
-	db, err = sql.Open("mysql", "root:" + os.Getenv("DB_PASSWORD") + "@tcp(localhost:3306)/" + os.Getenv("DB_NAME"))
+	db, err = sql.Open("mysql", "root:" + os.Getenv("DB_PASSWORD") + "@tcp(database:3306)/" + os.Getenv("DB_NAME"))
 	// db, err = sql.Open("mysql", "root:" + os.Getenv("DB_PASSWORD") + "@tcp(localhost:3306)/" + os.Getenv("DB_NAME"))
 	//os.Getenv in screenshot from Grant. Enter after '"mysql" ,'
 
